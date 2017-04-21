@@ -1,0 +1,13 @@
+FROM clojure
+
+# Install PhantomJS
+WORKDIR /usr/local/share
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN tar xjvf phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN ln -s /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+COPY acceptance /usr/src/acceptance
+RUN chmod 755 /usr/src/acceptance/acceptance.sh
+
+
+COPY acceptance /usr/src/acceptance
+WORKDIR /usr/src/acceptance
