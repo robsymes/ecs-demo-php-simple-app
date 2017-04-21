@@ -16,7 +16,7 @@
 ;      (to "http://beta-www.startribes.io")
 ;      (to "http://www.startribes.io")
 
-      (wait-until #(.contains (text "body") "Star Tribes"))
+      (wait-until #(.contains (text "body") "Star Tribes") 60000)
 
       (assert (= :something
                  :something)))
